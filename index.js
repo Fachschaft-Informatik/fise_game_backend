@@ -34,6 +34,11 @@ mongoose.connect(
 
 const db = mongoose.connection;
 
+app.get("/",(req,res) => {
+
+  res.send({ message: "test" });
+})
+
 db.on("error", console.error.bind(console, "connection error:"));
 db.once("open", async function() {
   const models = defineModels(mongoose);
