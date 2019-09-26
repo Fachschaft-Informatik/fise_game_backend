@@ -45,7 +45,7 @@ db.once("open", async function() {
   console.log("opened");
   app.listen(server_port, function() {
     console.log(
-      `Example app listening on port ${server_ip_address}:${server_port}!`
+      `Running on port: ${server_port}!`
     );
   });
 });
