@@ -5,7 +5,6 @@ const defineEndpoints = require("./endpoints");
 const defineModels = require("./utils/defineModels");
 
 var server_port = 8080;
-var server_ip_address = "localhost";
 
 app.use(express.json());
 app.use(function(req, res, next) {
@@ -44,7 +43,7 @@ db.once("open", async function() {
   const models = defineModels(mongoose);
   defineEndpoints(app, models);
   console.log("opened");
-  app.listen(server_port, server_ip_address, function() {
+  app.listen(server_port, function() {
     console.log(
       `Example app listening on port ${server_ip_address}:${server_port}!`
     );
