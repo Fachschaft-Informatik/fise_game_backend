@@ -6,7 +6,8 @@ const rooms = [
     "Zitrone\nGebäude G - Erdgeschoss",
     "Aula\nGebäude C - 1.OG", //?
     "Mensa",
-    "Postfächer\nGebäude H - EG"
+    "Postfächer\nGebäude H - EG",
+    "Eingangsbereich Bibliothek\nGebäude L - Erdgeschoss"
 ]
 module.exports = function getRoom(teamNr) {
     while(teamNr > rooms.length - 1){

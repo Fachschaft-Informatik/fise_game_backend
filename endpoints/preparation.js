@@ -71,7 +71,6 @@ module.exports = (app, models) => {
           return { key: p.key, word: getRandomWord() };
         })
       );
-      team.found.push(false);
       await participant.save();
       await team.save();
     }
