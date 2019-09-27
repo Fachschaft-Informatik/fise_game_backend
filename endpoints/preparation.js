@@ -60,17 +60,21 @@ module.exports = (app, models) => {
       const newTeamNr = number - i - 1;
       const participant = members[i];
       const team = await Team.findOne({ number: newTeamNr });
-      const passivePlayers = team.order;
+      const passivePlayers = team.order.slice();
       participant.team = newTeamNr;
       team.order.push(participant.key);
-      team.rounds.forEach(r => {
-        r.push({ key: participant.key, word: getRandomWord() });
+      
+      const newRounds = team.rounds.map(r => {
+        let copied = r.slice();
+        copied.push({ key: participant.key, word: getRandomWord() });
+        return copied;
       });
-      team.rounds.push(
+      newRounds.push(
         passivePlayers.map(p => {
-          return { key: p.key, word: getRandomWord() };
+          return { key: p, word: getRandomWord() };
         })
       );
+      team.rounds = newRounds;
       await participant.save();
       await team.save();
     }

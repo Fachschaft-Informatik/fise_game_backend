@@ -4,7 +4,7 @@ const app = express();
 const defineEndpoints = require("./endpoints");
 const defineModels = require("./utils/defineModels");
 
-var server_port = 8080;
+var server_port = 8808;
 
 app.use(express.json());
 app.use(function(req, res, next) {
